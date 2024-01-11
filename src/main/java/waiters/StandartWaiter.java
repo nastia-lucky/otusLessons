@@ -11,18 +11,19 @@ public class StandartWaiter implements IWaiter {
 
     private WebDriver driver;
     private Log logger;
+    private Integer waitingTime = 5;
 
 
     public StandartWaiter(WebDriver driver, Log logger) {
         super();
         this.driver = driver;
-        this.logger=logger;
+        this.logger = logger;
     }
 
 
     @Override
     public boolean waitForCondition(ExpectedCondition condition) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        WebDriverWait webDriverWait = new WebDriverWait(driver, waitingTime);
         try {
             webDriverWait.until(condition);
             return true;
@@ -43,5 +44,9 @@ public class StandartWaiter implements IWaiter {
         return waitForCondition(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public boolean waitNumberOfElementsMoreThan(By locator, Integer elementsNumber) {
+        logger.logWaitNumberOfElementsMoreThan(locator, elementsNumber);
+        return waitForCondition(ExpectedConditions.numberOfElementsToBeMoreThan(locator, elementsNumber));
+    }
 
 }

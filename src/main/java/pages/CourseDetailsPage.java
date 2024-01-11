@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CourseDetailsPage extends AbsBasePage {
+public class CourseDetailsPage extends AbsBasePage<CourseDetailsPage> {
 
     protected String titleFormat = "//h1[contains(text(),'%s')]";
 

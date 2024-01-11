@@ -4,8 +4,6 @@ import exceptions.DataDoesNotExistException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Course;
 import utils.resolvers.Range;
 
@@ -17,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class MainPage extends AbsBasePage {
+public class MainPage extends AbsBasePage<MainPage> {
 
     protected By lblCoursePath = By.xpath("//h5[@class]");
     protected By lblCourseStartDate = By.xpath("//a[@href]//span[contains(text(),'С ')]");
@@ -42,6 +40,9 @@ public class MainPage extends AbsBasePage {
                         .filter(element -> element.getText().contains(courseName))
                         .map(element -> element.getText())
                         .collect(Collectors.toList());
+        if (coursesNames.isEmpty()) {
+            throw new DataDoesNotExistException();
+        }
         return coursesNames.get(random.nextInt(coursesNames.size()));
 
     }
@@ -51,8 +52,7 @@ public class MainPage extends AbsBasePage {
         waiter.waitForElementVisible(lblCourseStartDate);
         List<WebElement> datesLabel = driver.findElements(lblCourseStartDate);
         List<Course> courses = new ArrayList<>();
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.numberOfElementsToBeMoreThan(lblCourseStartDate, 16));
+        waiter.waitNumberOfElementsMoreThan(lblCourseStartDate, 10);
         for (int i = 0; i < datesLabel.size(); i++) {
             String text = datesLabel.get(i).getText();
             Date date = dateUtils.getDate(dateUtils.resolveDate(text));
@@ -83,7 +83,7 @@ public class MainPage extends AbsBasePage {
         By xpath = By.xpath(String.format(lblCourseStringFormat, courseName));
         waiter.waitElementIsClickable(xpath);
         WebElement element = driver.findElement(xpath);
-        element.click();
+        actions.moveToElement(element).click().build().perform();
         logger.logClick(xpath);
         return new CourseDetailsPage(driver);
     }

@@ -23,11 +23,12 @@ public class OtusTest {
 
 
     @ParameterizedTest
-    @ValueSource(strings = {"Team", "Java"})
+    @ValueSource(strings = {"QA", "Python"})
     public void filterCourse(String name) {
         MainPage mainPage = new MainPage(driver);
         String courseName =
-                mainPage.getCoursesWithSpecifiedName(name);
+                mainPage
+                        .getCoursesWithSpecifiedName(name);
         CourseDetailsPage courseDetailsPage =
                 mainPage.openCoursePage(courseName);
         Assertions.getPageNotOpenedAssert(courseDetailsPage.isCoursePageOpened(name), name);

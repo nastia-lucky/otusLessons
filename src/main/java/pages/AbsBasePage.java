@@ -10,8 +10,8 @@ public abstract class AbsBasePage<T> extends AbsBaseUtils {
         super(driver);
     }
 
-    public T open(String url) {
-        driver.get(url);
+    public T open() {
+        driver.get(baseURL);
         return (T) this;
     }
 
