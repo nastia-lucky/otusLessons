@@ -24,7 +24,7 @@ public class OtusTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"QA", "Python"})
-    public void filterCourse(String name) {
+    void filterCourse(String name) {
         MainPage mainPage = new MainPage(driver);
         String courseName =
                 mainPage
@@ -36,7 +36,7 @@ public class OtusTest {
 
 
     @Test
-    public void sortByDate() throws ParseException {
+    void sortByDate() throws ParseException {
         MainPage mainPage = new MainPage(driver);
         String course = mainPage
                 .getCourseWithDate(Range.MIN);
