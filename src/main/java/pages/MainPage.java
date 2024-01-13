@@ -20,13 +20,10 @@ public class MainPage extends AbsBasePage<MainPage> {
     protected By lblCoursePath = By.xpath("//h5[@class]");
     protected By lblCourseStartDate = By.xpath("//a[@href]//span[contains(text(),'С ')]");
     protected String lblCourseStringFormat = "//h5[contains(text(),'%s')]";
-    protected By btnOkButton = By.xpath("//button/div[contains(text(),'OK')]");
 
 
     public MainPage(WebDriver driver) {
         super(driver);
-        driver.get(baseURL);
-        closeCookies();
     }
 
 
@@ -88,10 +85,7 @@ public class MainPage extends AbsBasePage<MainPage> {
         return new CourseDetailsPage(driver);
     }
 
-    public void closeCookies() {
-        logger.info("Close cookies");
-        waiter.waitElementIsClickable(btnOkButton);
-        logger.logClick(btnOkButton);
-        driver.findElement(btnOkButton).click();
-    }
+
+
+
 }
