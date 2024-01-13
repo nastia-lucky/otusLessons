@@ -15,7 +15,6 @@ public class StandartWaiter implements IWaiter {
 
 
     public StandartWaiter(WebDriver driver, Log logger) {
-        super();
         this.driver = driver;
         this.logger = logger;
     }
