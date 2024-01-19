@@ -8,7 +8,9 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class WebDriverFactory implements IFactory<EventFiringWebDriver> {
 
-    private String browserName = System.getProperty("browser", "chrome").toLowerCase();
+    private String browserName=System.getProperty("browser", "chrome").toLowerCase();
+
+
 
     @Override
     public EventFiringWebDriver create() {

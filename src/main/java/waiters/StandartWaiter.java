@@ -48,4 +48,8 @@ public class StandartWaiter implements IWaiter {
         return waitForCondition(ExpectedConditions.numberOfElementsToBeMoreThan(locator, elementsNumber));
     }
 
+    public boolean waitElementDisappear(By locator) {
+        return waitForCondition(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
 }

@@ -6,11 +6,17 @@ public class Course {
 
     private Date date;
     private int number;
+    private int price;
 
 
     public Course(Date date, int number) {
         this.date = date;
         this.number = number;
+    }
+
+    public Course(int price, int number){
+        this.price=price;
+        this.number=number;
     }
 
     public Date getDate() {
@@ -19,6 +25,10 @@ public class Course {
 
     public int getNumber() {
         return number;
+    }
+
+    public int getPrice(){
+        return price;
     }
 
 

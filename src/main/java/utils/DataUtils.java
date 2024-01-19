@@ -9,7 +9,7 @@ import java.util.Locale;
 
 public class DataUtils {
 
-    public Date getDate(String date) throws ParseException {
+    public Date getDate(String date)  {
         Locale locale = new Locale("ru");
         DateFormatSymbols dfs = DateFormatSymbols.getInstance(locale);
         String[] months = {
@@ -18,7 +18,12 @@ public class DataUtils {
         dfs.setMonths(months);
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", locale);
         sdf.setDateFormatSymbols(dfs);
-        return sdf.parse(date);
+        try {
+            return sdf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String resolveDate(String text) {
