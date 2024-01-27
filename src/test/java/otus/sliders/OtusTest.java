@@ -11,42 +11,41 @@ import org.openqa.selenium.WebDriver;
 import pages.CourseDetailsPage;
 import pages.MainPage;
 import utils.resolvers.Range;
-
 import java.text.ParseException;
 
 @ExtendWith(UIExtension.class)
 public class OtusTest {
 
 
-    @Driver
-    protected WebDriver driver;
+  @Driver
+  protected WebDriver driver;
 
 
-    @ParameterizedTest
-    @ValueSource(strings = {"QA", "Python"})
-    void filterCourse(String name) {
-        MainPage mainPage = new MainPage(driver)
-                .open();
-        String courseName =
-                mainPage
-                        .getCoursesWithSpecifiedName(name);
-        CourseDetailsPage courseDetailsPage =
-                mainPage.openCoursePage(courseName);
-        Assertions.getPageNotOpenedAssert(courseDetailsPage.isCoursePageOpened(name), name);
-    }
+  @ParameterizedTest
+  @ValueSource(strings = {"QA", "Python"})
+  void filterCourse(String name) {
+    MainPage mainPage = new MainPage(driver)
+        .open();
+    String courseName =
+        mainPage
+            .getCoursesWithSpecifiedName(name);
+    CourseDetailsPage courseDetailsPage =
+        mainPage.openCoursePage(courseName);
+    Assertions.getPageNotOpenedAssert(courseDetailsPage.isCoursePageOpened(name), name);
+  }
 
 
-    @Test
-    void sortByDate() throws ParseException {
-        MainPage mainPage = new MainPage(driver)
-                .open();
-        String course = mainPage
-                .getCourseWithDate(Range.MIN);
-        CourseDetailsPage courseDetailsPage =
-                mainPage
-                        .openCoursePage(course);
-        Assertions.getPageNotOpenedAssert(courseDetailsPage.isCoursePageOpened(course), course);
-    }
+  @Test
+  void sortByDate() throws ParseException {
+    MainPage mainPage = new MainPage(driver)
+        .open();
+    String course = mainPage
+        .getCourseWithDate(Range.MIN);
+    CourseDetailsPage courseDetailsPage =
+        mainPage
+            .openCoursePage(course);
+    Assertions.getPageNotOpenedAssert(courseDetailsPage.isCoursePageOpened(course), course);
+  }
 
 
 }

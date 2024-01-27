@@ -9,28 +9,28 @@ import java.util.Locale;
 
 public class DataUtils {
 
-    public Date getDate(String date) throws ParseException {
-        Locale locale = new Locale("ru");
-        DateFormatSymbols dfs = DateFormatSymbols.getInstance(locale);
-        String[] months = {
-                "января", "февраля", "марта", "апреля", "мая", "июня",
-                "июля", "августа", "сентября", "октября", "ноября", "декабря"};
-        dfs.setMonths(months);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", locale);
-        sdf.setDateFormatSymbols(dfs);
-        return sdf.parse(date);
-    }
+  public Date getDate(String date) throws ParseException {
+    Locale locale = new Locale("ru");
+    DateFormatSymbols dfs = DateFormatSymbols.getInstance(locale);
+    String[] months = {
+        "января", "февраля", "марта", "апреля", "мая", "июня",
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"};
+    dfs.setMonths(months);
+    SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", locale);
+    sdf.setDateFormatSymbols(dfs);
+    return sdf.parse(date);
+  }
 
-    public String resolveDate(String text) {
-        String date = null;
-        if (!text.contains("года")) {
-            String[] array = text.split(" ");
-            if (array.length == 5 || array.length == 3) {
-                date = array[1] + " " + array[2] + " " + Year.now().getValue();
-            }
-        } else {
-            date = text.substring(2, text.indexOf(" го"));
-        }
-        return date;
+  public String resolveDate(String text) {
+    String date = null;
+    if (!text.contains("года")) {
+      String[] array = text.split(" ");
+      if (array.length == 5 || array.length == 3) {
+        date = array[1] + " " + array[2] + " " + Year.now().getValue();
+      }
+    } else {
+      date = text.substring(2, text.indexOf(" го"));
     }
+    return date;
+  }
 }

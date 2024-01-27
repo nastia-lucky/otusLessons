@@ -6,24 +6,24 @@ import utils.AbsBaseUtils;
 
 public abstract class AbsBasePage<T> extends AbsBaseUtils {
 
-    protected By btnOkButton = By.xpath("//button/div[contains(text(),'OK')]");
+  protected By btnOkButton = By.xpath("//button/div[contains(text(),'OK')]");
 
 
-    protected AbsBasePage(WebDriver driver) {
-        super(driver);
-    }
+  protected AbsBasePage(WebDriver driver) {
+    super(driver);
+  }
 
-    public T open() {
-        this.driver.get(baseURL);
-        closeCookies();
-        return (T) this;
-    }
+  public T open() {
+    this.driver.get(baseURL);
+    closeCookies();
+    return (T) this;
+  }
 
-    public void closeCookies() {
-        logger.info("Close cookies");
-        waiter.waitElementIsClickable(btnOkButton);
-        logger.logClick(btnOkButton);
-        driver.findElement(btnOkButton).click();
-    }
+  public void closeCookies() {
+    logger.info("Close cookies");
+    waiter.waitElementIsClickable(btnOkButton);
+    logger.logClick(btnOkButton);
+    driver.findElement(btnOkButton).click();
+  }
 
 }
