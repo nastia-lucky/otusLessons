@@ -79,8 +79,6 @@ public class Listener implements WebDriverEventListener {
   @Override
   public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
     ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.border='3px solid red';", webElement);
-
-
   }
 
   @Override
