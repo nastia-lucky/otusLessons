@@ -4,6 +4,7 @@ import exceptions.BrowserNotSupportedException;
 import factories.impl.ChromeConfigure;
 import factories.impl.FirefoxConfigure;
 import factories.impl.OperaConfigure;
+import listeners.Listener;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class WebDriverFactory implements IFactory<EventFiringWebDriver> {
@@ -13,18 +14,26 @@ public class WebDriverFactory implements IFactory<EventFiringWebDriver> {
 
   @Override
   public EventFiringWebDriver create() {
+    EventFiringWebDriver myDriver;
     switch (browserName) {
       case ("chrome"): {
-        return new EventFiringWebDriver(new ChromeConfigure().configure());
+        myDriver = new EventFiringWebDriver(new ChromeConfigure().configure());
+        break;
       }
       case ("firefox"): {
-        return new EventFiringWebDriver(new FirefoxConfigure().configure());
+        myDriver = new EventFiringWebDriver(new FirefoxConfigure().configure());
+        break;
       }
       case ("opera"): {
-        return new EventFiringWebDriver(new OperaConfigure().configure());
+        myDriver = new EventFiringWebDriver(new OperaConfigure().configure());
+        break;
       }
       default:
         throw new BrowserNotSupportedException(browserName);
     }
+    myDriver.register(new Listener());
+    return myDriver;
   }
+
+
 }

@@ -7,20 +7,19 @@ import utils.AbsBaseUtils;
 public class MyListener extends AbsBaseUtils implements ITestListener {
 
 
-  public void onTestStart(ITestResult iTestResult) {
-    logger.logInfo(iTestResult.getName() + " started");
+  public void onTestStart(ITestResult result) {
+    logger.logInfo(result.getTestName() + " started");
   }
 
   @Override
-  public void onTestSuccess(ITestResult iTestResult) {
-    logger.logInfo(iTestResult.getName() + " passed");
+  public void onTestSuccess(ITestResult result) {
+    logger.logInfo(result.getTestName() + " passed");
 
   }
 
   @Override
-  public void onTestFailure(ITestResult iTestResult) {
-    logger.logInfo(iTestResult.getName() + " test failed");
-
+  public void onTestFailure(ITestResult result) {
+    logger.logInfo(result.getTestName() + " test failed");
   }
 
 
