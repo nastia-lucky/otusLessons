@@ -8,12 +8,12 @@ import org.openqa.selenium.opera.OperaOptions;
 public class OperaConfigure implements IBrowserSettings {
 
 
-    @Override
-    public WebDriver configure() {
-        OperaOptions options = new OperaOptions();
-        options.addArguments(("--start-fullscreen"));
-        options.addArguments(("--homepage=about:blank"));
-        WebDriverManager.operadriver().setup();
-        return new OperaDriver(options);
-    }
+  @Override
+  public WebDriver configure() {
+    OperaOptions options = new OperaOptions();
+    options.addArguments(("--start-fullscreen"));
+    options.addArguments(("--homepage=about:blank"));
+    WebDriverManager.operadriver().setup();
+    return new OperaDriver(options);
+  }
 }

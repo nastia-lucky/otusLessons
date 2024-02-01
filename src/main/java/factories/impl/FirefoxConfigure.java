@@ -8,12 +8,12 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class FirefoxConfigure implements IBrowserSettings {
 
 
-    @Override
-    public WebDriver configure() {
-        FirefoxOptions options = new FirefoxOptions();
-        options.addArguments(("--start-fullscreen"));
-        options.addArguments(("--homepage=about:blank"));
-        WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver(options);
-    }
+  @Override
+  public WebDriver configure() {
+    FirefoxOptions options = new FirefoxOptions();
+    options.addArguments(("--start-fullscreen"));
+    options.addArguments(("--homepage=about:blank"));
+    WebDriverManager.firefoxdriver().setup();
+    return new FirefoxDriver(options);
+  }
 }

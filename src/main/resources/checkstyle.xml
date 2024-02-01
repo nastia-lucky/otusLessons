@@ -37,7 +37,6 @@
         </module>
 
 
-
         <module name="OneTopLevelClass"/>
         <module name="NoLineWrap"/>
         <module name="ConstantName"/>

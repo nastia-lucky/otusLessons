@@ -8,13 +8,13 @@ import utils.DIScope;
 public class MainPage extends AbsBasePage<MainPage> {
 
 
-    private DIScope diScope;
+  private final DIScope diScope;
 
 
-    @Inject
-    public MainPage(DIScope diScope) {
-        super(diScope);
-        this.diScope = diScope;
-    }
+  @Inject
+  public MainPage(DIScope diScope) {
+    super(diScope);
+    this.diScope = diScope;
+  }
 
 }

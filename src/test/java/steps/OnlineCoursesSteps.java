@@ -7,11 +7,11 @@ import pages.OnlineCoursesPage;
 public class OnlineCoursesSteps {
 
 
-    @Inject
-    private OnlineCoursesPage onlineCoursesPage;
+  @Inject
+  private OnlineCoursesPage onlineCoursesPage;
 
-    @Given("Online Courses page is opened")
-    public void openMainPage() {
-        onlineCoursesPage.open();
-    }
+  @Given("Online Courses page is opened")
+  public void openMainPage() {
+    onlineCoursesPage.open();
+  }
 }

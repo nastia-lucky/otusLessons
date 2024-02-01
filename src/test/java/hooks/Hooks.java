@@ -7,14 +7,14 @@ import utils.DIScope;
 
 public class Hooks {
 
-    @Inject
-    private DIScope diScope;
+  @Inject
+  private DIScope diScope;
 
-    @After
-    public void close() {
-        WebDriver driver= diScope.getDriver();
-        if (driver != null) {
-            driver.quit();
-        }
+  @After
+  public void close() {
+    WebDriver driver = diScope.getDriver();
+    if (driver != null) {
+      driver.quit();
     }
+  }
 }

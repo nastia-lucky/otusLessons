@@ -11,25 +11,24 @@ import utils.DIScope;
 @Component("//h1[contains(text(),'Онлайн-курсы')]")
 public class OnlineCoursesPage extends AbsBasePage<OnlineCoursesPage> {
 
-    private DIScope scope;
+  private final DIScope scope;
 
-    protected By btnOkButton = By.xpath("//button[contains(@class,'cookies__button')]");
-
-
-    @Inject
-    public OnlineCoursesPage(DIScope diScope) {
-
-        super(diScope);
-        this.scope = diScope;
-    }
+  protected By btnOkButton = By.xpath("//button[contains(@class,'cookies__button')]");
 
 
-    public void closeCookies() {
-        logger.info("Close cookies");
-        waiter.waitElementIsClickable(btnOkButton);
-        logger.logClick(btnOkButton);
-        WebElement element = driver.findElement(btnOkButton);
-        scope.getActions().moveToElement(element).click().build().perform();
-    }
+  @Inject
+  public OnlineCoursesPage(DIScope diScope) {
+    super(diScope);
+    this.scope = diScope;
+  }
+
+
+  public void closeCookies() {
+    logger.info("Close cookies");
+    waiter.waitElementIsClickable(btnOkButton);
+    logger.logClick(btnOkButton);
+    WebElement element = driver.findElement(btnOkButton);
+    scope.getActions().moveToElement(element).click().build().perform();
+  }
 
 }

@@ -6,12 +6,12 @@ import pages.MainPage;
 
 public class MainPageSteps {
 
-    @Inject
-    public MainPage mainPage;
+  @Inject
+  public MainPage mainPage;
 
-    @Given("Main page is opened")
-    public void openMainPage() {
-        mainPage.open();
-    }
+  @Given("Main page is opened")
+  public void openMainPage() {
+    mainPage.open();
+  }
 
 }

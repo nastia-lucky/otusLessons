@@ -7,21 +7,21 @@ import waiters.StandartWaiter;
 
 public abstract class AbsBaseUtils {
 
-    protected String baseURL = System.getProperty("url", "https://otus.ru/");
-    protected WebDriver driver;
-    protected Log logger;
-    protected StandartWaiter waiter;
+  protected String baseURL = System.getProperty("url", "https://otus.ru/");
+  protected WebDriver driver;
+  protected Log logger;
+  protected StandartWaiter waiter;
 
 
-    @Inject
-    public  AbsBaseUtils(DIScope diScope) {
-        this.driver = diScope.getDriver();
-        this.logger = diScope.getLogger();
-        this.waiter = diScope.getWaiter();
-    }
+  @Inject
+  public AbsBaseUtils(DIScope diScope) {
+    this.driver = diScope.getDriver();
+    this.logger = diScope.getLogger();
+    this.waiter = diScope.getWaiter();
+  }
 
 
-    protected AbsBaseUtils() {
-    }
+  protected AbsBaseUtils() {
+  }
 
 }

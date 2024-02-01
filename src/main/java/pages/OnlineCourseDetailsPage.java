@@ -9,20 +9,20 @@ import utils.DIScope;
 public class OnlineCourseDetailsPage extends AbsBasePage<OnlineCourseDetailsPage> {
 
 
-    private String titleFormat = "//h3[contains(text(),'%s')]";
+  private final String titleFormat = "//h3[contains(text(),'%s')]";
 
-    @Inject
-    public OnlineCourseDetailsPage(DIScope diScope) {
-        super(diScope);
-    }
+  @Inject
+  public OnlineCourseDetailsPage(DIScope diScope) {
+    super(diScope);
+  }
 
-    public boolean isOnlineCoursePageOpened(String course) {
-        logger.info(String.format("Check is online course [%s] page opened", course));
-        By path = By.xpath(String.format(titleFormat, course));
-        waiter.waitForElementVisible(path);
-        logger.logTheElementIsDisplayed(path);
-        return driver.findElement(path).isDisplayed();
-    }
+  public boolean isOnlineCoursePageOpened(String course) {
+    logger.info(String.format("Check is online course [%s] page opened", course));
+    By path = By.xpath(String.format(titleFormat, course));
+    waiter.waitForElementVisible(path);
+    logger.logTheElementIsDisplayed(path);
+    return driver.findElement(path).isDisplayed();
+  }
 
 
 }

@@ -8,19 +8,18 @@ import utils.DIScope;
 
 public class OnlineCourseDetailsPageSteps {
 
-    @Inject
-    private DIScope diScope;
+  @Inject
+  private DIScope diScope;
 
-    @Inject
-    public OnlineCourseDetailsPage onlineCourseDetailsPage;
+  @Inject
+  public OnlineCourseDetailsPage onlineCourseDetailsPage;
 
 
-    @Then("I check online course page is opened")
-    public void isCoursePageOpened() {
-        Assert.assertTrue(onlineCourseDetailsPage.isOnlineCoursePageOpened(diScope.getCourseName()),
-                "Online course page " + diScope.getCourseName() + " is not opened");
-        ;
-    }
+  @Then("I check online course page is opened")
+  public void isCoursePageOpened() {
+    Assert.assertTrue(onlineCourseDetailsPage.isOnlineCoursePageOpened(diScope.getCourseName()),
+        "Online course page " + diScope.getCourseName() + " is not opened");
+  }
 
 
 }
