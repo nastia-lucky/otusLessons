@@ -1,5 +1,8 @@
 <suite name="Otus tests">
     <test name="Otus tests">
+        <listeners>
+            <listener class-name="listeners.MyListener"/>
+        </listeners>
         <classes>
             <class name="runner.RunnerTest"></class>
         </classes>

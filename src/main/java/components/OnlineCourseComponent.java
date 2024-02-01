@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.Course;
 import utils.DIScope;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

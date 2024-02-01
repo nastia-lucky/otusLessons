@@ -7,7 +7,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import utils.AbsBaseUtils;
 import utils.DIScope;
-
 import javax.inject.Inject;
 
 public abstract class AbsBasePage<T> extends AbsBaseUtils {

@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import pages.CourseDetailsPage;
 import utils.Course;
 import utils.DIScope;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -30,23 +29,6 @@ public class CourseComponent extends AbsBaseComponent {
   protected By lblCourseStartDate = By.xpath("//a[@href]//span[contains(text(),'С ')]");
   protected String lblCourseStringFormat = "//h5[contains(text(),'%s')]";
 
-
-  public String getCoursesWithSpecifiedName(String courseName) {
-    logger.logInfo(String.format("Get course with specific name [%s]", courseName));
-    waiter.waitForElementVisible(lblCoursePath);
-    List<WebElement> courses = driver.findElements(lblCoursePath);
-    List<String> coursesNames =
-        courses
-            .stream()
-            .filter(element -> element.getText().contains(courseName))
-            .map(element -> element.getText())
-            .collect(Collectors.toList());
-    if (coursesNames.isEmpty()) {
-      throw new DataDoesNotExistException();
-    }
-    return coursesNames.get(diScope.getRandom().nextInt(coursesNames.size()));
-
-  }
 
   public String getCourseWithDate(int number) {
     logger.logInfo(String.format("Get course with date [%s]", number));

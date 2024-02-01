@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 import components.CourseComponent;
 import io.cucumber.java.en.And;
 import utils.DIScope;
-
 import java.text.ParseException;
 
 public class CourseComponentSteps {
@@ -33,7 +32,7 @@ public class CourseComponentSteps {
 
   @And("I open course with {string} date")
   public void chooseCourseWithDate(String date) {
-    String courseName = null;
+    String courseName;
     courseName = courseComponent.chooseCourseWithDate(date);
     diScope.setCourseName(courseName);
     courseComponent.openCoursePage(courseName);
